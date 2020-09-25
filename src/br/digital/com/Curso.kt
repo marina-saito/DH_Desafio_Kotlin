@@ -1,16 +1,16 @@
 package br.digital.com
 
-class Aluno(var nomeAluno: String, var sobrenome: String, var codigoAluno: Int) {
+class Curso(var nomeCurso: String, var codigoCurso: Int) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Aluno
+        other as Curso
 
-        if (codigoAluno != other.codigoAluno) return false
+        if (codigoCurso != other.codigoCurso) return false
 
         return true
     }
-
+    
 }
