@@ -12,5 +12,5 @@ class Curso(var nomeCurso: String, var codigoCurso: Int) {
 
         return true
     }
-    
+
 }
