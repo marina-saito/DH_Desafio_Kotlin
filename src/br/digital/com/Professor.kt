@@ -1,6 +1,6 @@
 package br.digital.com
 
-class Professor(var nomeProfessor: String, var sobrenomeString: String, var tempoCasa: Int, var codigoProfessor: Int) {
+open class Professor(var nomeProfessor: String, var sobrenomeProfessor: String, var tempoCasa: Int, var codigoProfessor: Int) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
