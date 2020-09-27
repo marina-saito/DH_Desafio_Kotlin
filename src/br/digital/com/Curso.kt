@@ -19,4 +19,14 @@ class Curso(
         return true
     }
 
+    fun adicionarUmAluno(umAluno: Aluno): Boolean {
+        if (listaAlunos.lastIndex + 1 == maxAlunos) return false
+        else listaAlunos.add(umAluno)
+        return true
+    }
+
+    fun excluirAluno(umAluno: Aluno) {
+        listaAlunos.remove(umAluno)
+    }
+
 }
