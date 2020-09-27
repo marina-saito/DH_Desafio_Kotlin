@@ -3,10 +3,11 @@ package br.digital.com
 class Curso(
         var nomeCurso: String,
         var codigoCurso: Int,
-        var professorTitular: ProfessorTitular,
-        var professorAdjunto: ProfessorAdjunto,
-        var maxAlunos: Int,
-        var listaAlunos: MutableList<Aluno>) {
+        var maxAlunos: Int) {
+
+    lateinit var professorTitular: ProfessorTitular
+    lateinit var professorAdjunto: ProfessorAdjunto
+    lateinit var listaAlunos: MutableList<Aluno>
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -20,7 +21,7 @@ class Curso(
     }
 
     fun adicionarUmAluno(umAluno: Aluno): Boolean {
-        if (listaAlunos.lastIndex + 1 == maxAlunos) return false
+        if (maxAlunos == listaAlunos.lastIndex + 1) return false
         else listaAlunos.add(umAluno)
         return true
     }
