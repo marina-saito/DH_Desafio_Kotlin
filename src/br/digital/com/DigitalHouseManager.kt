@@ -1,10 +1,10 @@
 package br.digital.com
 
 class DigitalHouseManager(
-        var listaAlunos: MutableMap<Int,Aluno>,
-        var listaProfessores: MutableMap<Int,Professor>,
-        var listaCursos: MutableMap<Int,Curso>,
-        var listaMatriculas: MutableSet<Matricula>) {
+        var listaAlunos: MutableMap<Int,Aluno> = mutableMapOf(),
+        var listaProfessores: MutableMap<Int,Professor> = mutableMapOf(),
+        var listaCursos: MutableMap<Int,Curso> = mutableMapOf(),
+        var listaMatriculas: MutableSet<Matricula> = mutableSetOf()) {
 
     fun registrarCurso(nomeCurso: String, codigoCurso: Int, qtdMaxAlunos: Int){
         if (codigoCurso in listaCursos) println("Este código de curso já existe!")
@@ -59,12 +59,13 @@ class DigitalHouseManager(
     }
 
     fun matricularAluno(codigoAluno: Int, codigoCurso: Int){
-        if (codigoAluno in listaAlunos && codigoCurso in listaCursos && listaCursos.count() < listaCursos[codigoCurso]!!.maxAlunos) {
+        if (codigoAluno in listaAlunos && codigoCurso in listaCursos && listaCursos[codigoCurso]!!.listaAlunos.size < listaCursos[codigoCurso]!!.maxAlunos) {
             var novaMatricula = Matricula(listaAlunos[codigoAluno], listaCursos[codigoCurso])
             listaMatriculas.add(novaMatricula)
-            println("Matrícula realizada com sucesso!")
+            listaCursos[codigoCurso]!!.listaAlunos.add(listaAlunos[codigoAluno]!!)
+            println("Matrícula realizada com sucesso! Número de alunos nesse curso: ${listaCursos[codigoCurso]!!.listaAlunos.size}")
         }
-        else if (codigoAluno in listaAlunos && codigoCurso in listaCursos && listaCursos.count() == listaCursos[codigoCurso]!!.maxAlunos) {
+        else if (codigoAluno in listaAlunos && codigoCurso in listaCursos && listaCursos[codigoCurso]!!.listaAlunos.size == listaCursos[codigoCurso]!!.maxAlunos) {
             println("Não foi possível realizar a matrícula. Não há vagas disponíveis!")
         }
         else println("Codigo de aluno ou curso não encontrado!")
