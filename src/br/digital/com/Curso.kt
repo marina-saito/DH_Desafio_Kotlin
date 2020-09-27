@@ -1,6 +1,12 @@
 package br.digital.com
 
-class Curso(var nomeCurso: String, var codigoCurso: Int) {
+class Curso(
+        var nomeCurso: String,
+        var codigoCurso: Int,
+        var professorTitular: ProfessorTitular,
+        var professorAdjunto: ProfessorAdjunto,
+        var maxAlunos: Int,
+        var listaAlunos: MutableList<Aluno>) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
