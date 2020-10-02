@@ -31,7 +31,7 @@ class Curso(
     }
 
     override fun toString(): String {
-        return "Curso(nome='$nomeCurso', professorTitular=$professorTitular, professorAdjunto=$professorAdjunto)"
+        return "$nomeCurso"
     }
 
 

@@ -14,7 +14,7 @@ class Aluno(var nomeAluno: String, var sobrenomeAluno: String, var codigoAluno: 
     }
 
     override fun toString(): String {
-        return "Aluno(nome='$nomeAluno')"
+        return "$nomeAluno"
     }
 
 

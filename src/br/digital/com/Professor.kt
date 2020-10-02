@@ -14,7 +14,7 @@ open class Professor(var nomeProfessor: String, var sobrenomeProfessor: String, 
     }
 
     override fun toString(): String {
-        return "Professor(nome='$nomeProfessor')"
+        return "$nomeProfessor"
     }
 
 
